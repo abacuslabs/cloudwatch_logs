@@ -1,21 +1,15 @@
 cloudwatch_logs Cookbook
 ========================
-TODO: Enter the cookbook description here.
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
+Installs and configures the AWS Cloud Watch Logs Agent. 
 
-Requirements
-------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+This is basically just a reworked version of the OpsWorks Quickstart that Amazon provides, which installs the agent and confugures the list of logs to send to Amazon.
 
-e.g.
-#### packages
-- `toaster` - cloudwatch_logs needs toaster to brown your bagel.
+http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/QuickStartChef.html 
+
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
 
 e.g.
 #### cloudwatch_logs::default
@@ -24,23 +18,45 @@ e.g.
     <th>Key</th>
     <th>Type</th>
     <th>Description</th>
-    <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['cloudwatch_logs']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['cwlogs']['logs']</tt></td>
+    <td>Array</td>
+    <td>List of logs</td>
   </tr>
 </table>
+
+##### Each log block
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><tt>'name'</tt></td>
+    <td>String</td>
+    <td>Name of the destination log group.</td>
+  </tr>
+  <tr>
+    <td><tt>'file'</tt></td>
+    <td>String</td>
+    <td>Path of log file for the agent to monitor and upload.</td>
+  </tr>
+  <tr>
+    <td><tt>'date_format'</tt></td>
+    <td>String</td>
+    <td>Format specifier for timestamp parsing (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/AgentReference.html)</td>
+  </tr>
+</table>
+
 
 Usage
 -----
 #### cloudwatch_logs::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
-Just include `cloudwatch_logs` in your node's `run_list`:
+Just include `cloudwatch_logs` in your node's `run_list` and configure the list of logs:
 
 ```json
 {
@@ -65,4 +81,4 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Authors: Joshua Halickman

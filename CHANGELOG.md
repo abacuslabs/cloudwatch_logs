@@ -5,7 +5,7 @@ This file is used to list changes made in each version of the cloudwatch_logs co
 
 0.1.0
 -----
-- [your_name] - Initial release of cloudwatch_logs
+- [Joshua Halickman] - Initial release of cloudwatch_logs
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.
